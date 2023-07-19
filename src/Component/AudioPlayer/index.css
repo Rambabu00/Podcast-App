@@ -1,0 +1,110 @@
+.custom-audio-player {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 1rem 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 auto;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 40px 100px rgba(255, 255, 255, 1);
+   
+    overflow: hidden;
+    color: #d5eebb;
+ 
+  }
+  .custom-audio-player1{
+    display: none;
+  }
+  .display-image-player {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    margin: 0rem 1rem;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px var(--grey), 0px 0px 40px var(--theme), 0px 0px 80px var(--theme);
+    animation: rotate 4s linear infinite;
+    transition: all 1s;
+  }
+ 
+  
+  @keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+  }
+  .duration-range {
+    filter: hue-rotate(25deg);
+    width: 100%;
+  }
+  
+  .duration-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    width: 50%;
+  }
+  
+  .volume-range {
+    filter: hue-rotate(25deg);
+    width: 25%;
+  }
+  
+  .audio-btn {
+    cursor: pointer;
+  }
+  .music-bar-icon{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 13px;
+    height: 13px;
+  }
+   span{
+    width: 3px;
+    height: 100%;
+    background-color: orange;
+    border-radius: 3px;
+    transform-origin: bottom;
+    animation: bounce 2.2s ease infinite alternate;
+    content: '';
+  }
+  span {
+    &:nth-of-type(2) {
+      animation-delay: -2.2s; 
+    }
+  
+    &:nth-of-type(3) {
+      animation-delay: -3.7s; 
+    }
+  }
+  @keyframes bounce {
+    10% {
+      transform: scaleY(0.3); /* start by scaling to 30% */
+    }
+  
+    30% {
+      transform: scaleY(1); /* scale up to 100% */
+    }
+  
+    60% {
+      transform: scaleY(0.5); /* scale down to 50% */
+    }
+  
+    80% {
+      transform: scaleY(0.75); /* scale up to 75% */
+    }
+  
+    100% {
+      transform: scaleY(0.6); /* scale down to 60% */
+    }
+  }
+  

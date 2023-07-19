@@ -1,0 +1,37 @@
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+.Link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.50rem;
+}
+.Link a{
+    color: var(--purple-grey);
+    text-decoration: none !important;
+z-index: 1;
+}
+.active{
+    color: var(--white) !important;
+     text-shadow: 0px 0px 20px var(--white),0px 0px 40px var(--white), 0px 0px 80px var(--white);
+     text-transform: uppercase;
+     
+}
+.Link a:hover{
+    color: var(--white);
+    transition: all 0.4s;
+}
+.grad-nav{
+position: absolute;
+width: 800px;
+height: 150px;
+background-color: var(--blue);
+z-index: -1;
+margin: auto;
+top: -120px;
+filter: blur(120px);
+} 

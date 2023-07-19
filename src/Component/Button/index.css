@@ -1,0 +1,24 @@
+.custom-btn{
+    border-radius: 0.35rem;
+ 
+    font-weight: 500;
+    padding: 0.5rem;
+     width: 60vw;
+  background-color: var(--theme) !important;
+  color: var(--white);
+  border: 2px solid var(--white);
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.custom-btn:hover{
+  background-color: var(--white) !important;
+  color: black;
+  border: 2px solid var(--grey);
+  transition: all 0.4s;
+  
+}
+.custom-btn:active{
+  transition: all ease-in-out;
+  transform: scale(0.90);
+}

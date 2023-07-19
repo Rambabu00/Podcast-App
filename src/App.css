@@ -1,0 +1,39 @@
+ 
+ .nav-con{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+ }
+ body{
+     background-color: grey;
+ }
+ a{
+    text-decoration: none !important;
+    color: rgb(213, 187, 187);
+ 
+ }
+ a:hover{
+    color: white;
+ }
+ .active{
+    color: white;
+ }
+ .Link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+ 
+    
+ }
+ .grad-nav{
+    position: absolute;
+    width: 800px;
+    height: 150px;
+    margin: auto;
+    background-color: aqua;
+    filter: blur(180px);
+    top: -150px;
+    z-index: -1;
+ }
