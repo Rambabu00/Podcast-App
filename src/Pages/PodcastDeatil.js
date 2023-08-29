@@ -5,23 +5,22 @@ import { collection, doc, getDoc, onSnapshot, query } from "firebase/firestore";
 import { auth, db } from "../Firebase";
 import { toast } from "react-toastify";
  import Button from "../Component/Button";
- import AudioPlayer from "../Component/AudioPlayer";
+ 
 import EpisodeDetails from "../Component/Episode";
  
 
-function PodcastDetails() {
+function PodcastDetails({setState, setImage, setFlag,  setAudio}) {
   const { id } = useParams();
   const navigate = useNavigate();
   const [podcast, setPodcast] = useState({});
   const [episodes, setEpisodes] = useState([]);
-  const [playingFile, setPlayingFile] = useState("");
- const [musicContainer,setMusicContiner]= useState(false)
+ 
   console.log("ID", id);
   useEffect(() => {
     if (id) {
       getData();
     }
-  }, [id]);
+  }, [id ]);
  
   const getData = async () => {
     try {
@@ -61,7 +60,14 @@ function PodcastDetails() {
       unsubscribe();
     };
   }, [id]);
-
+if(podcast.displayImage)
+ {
+  let image=podcast.displayImage
+   
+  setImage(image);
+ 
+  setFlag(true)
+ }
   return (
     <div>
    
@@ -105,8 +111,8 @@ function PodcastDetails() {
                       title={episode.title}
                       description={episode.description}
                       audioFile={episode.audioFile}
-                      onClick={(file) => setPlayingFile(file)}
-                      setState={setMusicContiner}
+                      onClick={(file) => setAudio(file)}
+                      setState={setState}
                     />
                   );
                 })}
@@ -117,10 +123,7 @@ function PodcastDetails() {
           </>
         )}
       </div>
-      {playingFile &&  (
       
-           <AudioPlayer audioSrc={playingFile} image={podcast.displayImage} state={musicContainer} setState={setMusicContiner}/>
-      )}
     </div>
   );
 }

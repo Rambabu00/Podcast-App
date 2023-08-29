@@ -6,7 +6,7 @@ import React, {useState} from 'react';
 import { auth } from '../Firebase';
 import { toast } from 'react-toastify';
  import Loader1 from '../Component/Loader';
-const Profile = () => {
+const Profile = ({setFlag}) => {
     const user=useSelector((state)=>state.SetuserReduce);
   console.log('user data  from redux')
     const [loading,setLoading]=useState(false)
@@ -22,7 +22,7 @@ if(!user){
         setLoading(true)
     try {
         await signOut(auth)
-        
+        setFlag(false)
         setLoading(false)
         toast.success('user logouted!')
     } catch (error) {

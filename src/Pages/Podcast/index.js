@@ -1,12 +1,14 @@
 import React, {useState,useEffect} from 'react';
  import { podcast } from '../../redux/ActionCreator';
  import { useSelector } from 'react-redux';
+ 
 import { onSnapshot,query } from 'firebase/firestore';
 import { collection } from 'firebase/firestore';
  import { db } from '../../Firebase';
  import Input from '../../Component/InputElement';
  import { useDispatch } from 'react-redux';
  import PodcastCard from '../../Component/PodcastCard';
+ 
  
 const Podcast = () => {
     const dispatch = useDispatch();
@@ -38,24 +40,23 @@ const Podcast = () => {
         unsubscribe();
       };
     }, [dispatch]);
-
-    
   
     let filterData=Filter.filter((item)=> item.title.trim().toLowerCase().includes(search.trim().toLowerCase()))
-    
+   
   
     return (
       <div>
          
         <div className="input-wrapper" style={{ marginTop: "2rem" }}>
           <h1>Discover Podcasts</h1>
+           
           <Input
             state={search}
             setState={setSearch}
             placeholder="Search By Title"
             type="text"
           />
-  
+   
           {filterData.length > 0 ? (
             <div className="podcasts-flex" style={{ marginTop: "1.5rem" }}>
               {filterData.map((item) => {
@@ -73,6 +74,7 @@ const Podcast = () => {
             <p>{search ? "Podcast Not Found" : "No Podcasts On The Platform"}</p>
           )}
         </div>
+    
       </div>
     );
 };

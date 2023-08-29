@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import "./index.css";
 import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute } from "react-icons/fa";
 import Button from '../Button'
+ 
 function AudioPlayer({ audioSrc, image, state,setState}) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMute, setIsMute] = useState(false);
@@ -78,12 +79,11 @@ function AudioPlayer({ audioSrc, image, state,setState}) {
     if (isPlaying) {
       audioRef.current.play();
  imagRef.current.style.animation='rotate 4s linear infinite'
- spanRef.current.style.animation='bounce 2.2s ease infinite alternate'
- 
+ spanRef.current.style.animationPlayState='running';
     } else {
       audioRef.current.pause();
       imagRef.current.style.animation="none";
-      spanRef.current.style.animation='none';
+      spanRef.current.style.animationPlayState='paused';
       
     }
   }, [isPlaying]);
@@ -136,7 +136,9 @@ function AudioPlayer({ audioSrc, image, state,setState}) {
         className="volume-range"
       />
  <Button text="close" onClick={()=>{setState(false)}} width='6rem'></Button>
+   
     </div>
+    
   );
 }
 

@@ -4,6 +4,12 @@ import Login from '../../Component/SignupForm/Login';
  import '../../index.css'
 const Sign = () => {
      const [flag,setflag]=useState(false)
+     document.addEventListener('keydown', (e)=>{
+        if(e.ctrlKey && e.key==='m'){
+            setflag(!flag)
+        }
+     })
+    
     return (
         <div className='main'>  
         <div className='input-wrapper'>
