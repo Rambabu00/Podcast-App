@@ -14,7 +14,7 @@ function PodcastDetails({setState, setImage, setFlag,  setAudio}) {
   const navigate = useNavigate();
   const [podcast, setPodcast] = useState({});
   const [episodes, setEpisodes] = useState([]);
- 
+ const [imageChange, setImageChange]=useState(false)
   console.log("ID", id);
   useEffect(() => {
     if (id) {
@@ -60,13 +60,14 @@ function PodcastDetails({setState, setImage, setFlag,  setAudio}) {
       unsubscribe();
     };
   }, [id]);
-if(podcast.displayImage)
+if(podcast.displayImage && imageChange)
  {
   let image=podcast.displayImage
-   
+  
   setImage(image);
  
   setFlag(true)
+  setImageChange(false)
  }
   return (
     <div>
@@ -97,7 +98,7 @@ if(podcast.displayImage)
             </div>
 
             <div className="banner-wrapper">
-              <img src={podcast.bannerImage}  alt=""/>
+              <img src={podcast.bannerImage}  alt="banner"/>
             </div>
             <p className="podcast-description">{podcast.description}</p>
             <h1 className="podcast-title-heading ">Episodes</h1>
@@ -111,7 +112,9 @@ if(podcast.displayImage)
                       title={episode.title}
                       description={episode.description}
                       audioFile={episode.audioFile}
-                      onClick={(file) => setAudio(file)}
+                      onClick={(file) => {setAudio(file)
+                          setImageChange(true)       
+                      }}
                       setState={setState}
                     />
                   );
